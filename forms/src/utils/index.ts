@@ -1,0 +1,1 @@
+export { createLabeled } from './createLabeled'

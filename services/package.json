@@ -1,0 +1,16 @@
+{
+  "name": "@preact-lib/services",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@m-ld/m-ld": "^0.10.0",
+    "helia": "^4.0.1",
+    "libp2p": "^1.2.1",
+    "typescript": "^5.3.3"
+  }
+}
