@@ -1,20 +1,36 @@
 {
-  "name": "@preact-lib/forms",
-  "packageManager": "yarn@4.1.0",
-  "main": "dist/index.js",
-  "license": "MIT",
-  "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc"
-  },
-  "dependencies": {
-    "@preact/signals": "^1.2.2",
-    "formik": "^2.4.5",
-    "preact": "^10.19.3",
-    "typescript-plugin-css-modules": "^5.0.2"
-  },
-  "devDependencies": {
-    "@types/css-modules": "^1.0.5",
-    "typescript": "^5.3.3"
-  }
+	"name": "@preact-lib/forms",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"license": "MIT",
+	"scripts": {
+		"dev": "vite build --watch",
+		"build": "vite build"
+	},
+	"sideEffects": [
+		"**/*.css"
+	],
+	"dependencies": {
+		"@preact/signals": "^1.2.2",
+		"formik": "^2.4.5"
+	},
+	"peerDependencies": {
+		"preact": "^10.19.3"
+	},
+	"devDependencies": {
+		"@preact/preset-vite": "^2.8.1",
+		"@types/css-modules": "^1.0.5",
+		"preact": "^10.19.3",
+		"typescript": "^5.3.3",
+		"typescript-plugin-css-modules": "^5.0.2",
+		"vite": "^5.0.12",
+		"vite-plugin-checker": "^0.6.4",
+		"vite-plugin-dts": "^3.7.2",
+		"vite-plugin-lib-inject-css": "^1.3.0"
+	},
+	"packageManager": "yarn@4.1.0"
 }
