@@ -28,19 +28,19 @@ export default defineConfig(({mode}) => ({
         rollupOptions: {
             preserveSymlinks: true,
 
-            external: ['preact', '@preact/signals'],
+            external: ['preact', '@preact/signals', '@preact-lib/services'],
             output: {
                 // Provide global variables to use in the UMD build
                 // for externalized deps
                 globals: {
                     preact: 'preact',
                     '@preact/signals': '@preact/signals',
+					'@preact-lib/services': '@preact-lib/services',
                 },
             },
         },
         emptyOutDir: mode !== 'dev',
         sourcemap: mode == 'dev',
-        manifest: true,
         minify: mode == 'dev' ? 'esbuild' : 'terser',
     },
 }));
