@@ -6,7 +6,7 @@ import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import checker from 'vite-plugin-checker';
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({mode}) => ({
     plugins: [
         preact(),
         checker({
@@ -16,26 +16,24 @@ export default defineConfig(({ mode }) => ({
         dts({
             entryRoot: './src',
             rollupTypes: true,
-        })
+        }),
     ],
     build: {
         lib: {
             // Could also be a dictionary or array of multiple entry points
             entry: resolve(__dirname, 'src/index.ts'),
-            name: 'Forms',
+            name: 'Components',
             fileName: 'index',
         },
         rollupOptions: {
             preserveSymlinks: true,
 
-            external: ['preact', '@preact/signals', 'formik'],
+            external: ['preact', '@preact/signals'],
             output: {
-                //entryFileNames: '[name].js',
                 // Provide global variables to use in the UMD build
                 // for externalized deps
                 globals: {
                     preact: 'preact',
-                    formik: 'formik',
                     '@preact/signals': '@preact/signals',
                 },
             },

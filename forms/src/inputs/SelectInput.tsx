@@ -1,8 +1,8 @@
-import { useField } from "formik"
-import { IInputProps } from "../IInputProps"
-import commons from '../commons.module.css';
+import { useField } from "formik";
+import { IInputProps } from "../IInputProps";
 import { useComputed } from "@preact/signals";
 import { createLabeled } from "../utils";
+import commons from '../commons.module.css';
 
 export interface ISelectInputProps extends IInputProps {
 	options: string[];
