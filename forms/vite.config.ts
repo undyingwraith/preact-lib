@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => ({
         rollupOptions: {
             preserveSymlinks: true,
 
-            external: ['preact', '@preact/signals', 'formik'],
+            external: ['preact', '@preact/signals', 'formik', '@preact-lib/components'],
             output: {
                 //entryFileNames: '[name].js',
                 // Provide global variables to use in the UMD build
@@ -37,12 +37,12 @@ export default defineConfig(({ mode }) => ({
                     preact: 'preact',
                     formik: 'formik',
                     '@preact/signals': '@preact/signals',
+					'@preact-lib/components': '@preact-lib/components',
                 },
             },
         },
         emptyOutDir: mode !== 'dev',
         sourcemap: mode == 'dev',
-        manifest: true,
         minify: mode == 'dev' ? 'esbuild' : 'terser',
     },
 }));
