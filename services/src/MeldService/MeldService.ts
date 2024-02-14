@@ -3,19 +3,18 @@ import { MeldReadState, MeldStateSubscription, MeldClone, clone, ConstructRemote
 import { AbstractLevel } from 'abstract-level'
 
 export class MeldService implements IMeldService {
-    protected constructor(private readonly instance: MeldClone) {
+	protected constructor(private readonly instance: MeldClone) {
+	}
 
-    }
+	public static async create<TConfig extends MeldConfig>(level: AbstractLevel<any, any, any>, remotes: ConstructRemotes, config: TConfig): Promise<IMeldService> {
+		await level.open({
+			createIfMissing: true,
+		})
+		const instance = await clone(level, remotes, config);
+		return new MeldService(instance);
+	}
 
-    public static async create<TConfig extends MeldConfig>(level: AbstractLevel<any, any, any>, remotes: ConstructRemotes, config: TConfig): Promise<IMeldService> {
-        await level.open({
-            createIfMissing: true,
-        })
-        const instance = await clone(level, remotes, config);
-        return new MeldService(instance);
-    }
-
-    subscribe(update: (state: MeldReadState) => void): MeldStateSubscription<void> {
-        return this.instance.read((state) => update(state), (_, state) => update(state));
-    }
+	subscribe(update: (state: MeldReadState) => void): MeldStateSubscription<void> {
+		return this.instance.read((state) => update(state), (_, state) => update(state));
+	}
 }

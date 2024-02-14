@@ -25,10 +25,10 @@
 			{
 				"name": "typescript-plugin-css-modules"
 			}
+		],
+		"types": [
+			"vitest/globals"
 		]
 	},
-	"include": [
-		"src",
-		"vite.config.ts"
-	]
+	"include": ["src/**/*", "tests/**/*", "vite.config.ts"],
 }

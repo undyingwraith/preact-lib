@@ -1,16 +1,36 @@
 {
   "name": "@preact-lib/services",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc"
+    "dev": "vite build --watch --mode dev",
+    "build": "vite build",
+    "test": "vitest run"
   },
   "dependencies": {
     "@m-ld/m-ld": "^0.10.0",
     "helia": "^4.0.1",
-    "libp2p": "^1.2.1",
-    "typescript": "^5.3.3"
+    "libp2p": "^1.2.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.1.1",
+    "vite-plugin-checker": "^0.6.4",
+    "vite-plugin-dts": "^3.7.2",
+    "vitest": "^1.2.2"
   }
 }

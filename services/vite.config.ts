@@ -1,18 +1,14 @@
 /// <reference types="vitest" />
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
-import preact from '@preact/preset-vite';
-import dts from 'vite-plugin-dts';
-import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import checker from 'vite-plugin-checker';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig(({ mode }) => ({
 	plugins: [
-		preact(),
-		checker({
+		/*checker({
 			typescript: { buildMode: true }
-		}),
-		libInjectCss(),
+		}),*/
 		dts({
 			entryRoot: './src',
 			rollupTypes: true,
@@ -22,29 +18,29 @@ export default defineConfig(({ mode }) => ({
 		lib: {
 			// Could also be a dictionary or array of multiple entry points
 			entry: resolve(__dirname, 'src/index.ts'),
-			name: 'Components',
+			name: 'Services',
 			fileName: 'index',
 		},
 		rollupOptions: {
 			preserveSymlinks: true,
 
-			external: ['preact', '@preact/signals'],
+			external: ['helia', 'libp2p', '@m-ld/m-ld'],
 			output: {
 				// Provide global variables to use in the UMD build
 				// for externalized deps
 				globals: {
-					preact: 'preact',
-					'@preact/signals': '@preact/signals',
+					helia: 'helia',
+					libp2p: 'libp2p',
+					'@m-ld/m-ld': 'meld',
 				},
 			},
 		},
 		emptyOutDir: mode !== 'dev',
 		sourcemap: mode == 'dev',
-		manifest: true,
+		manifest: false,
 		minify: mode == 'dev' ? 'esbuild' : 'terser',
 	},
 	test: {
-		global: true,
-		environment: 'jsdom',
-	}
+		globals: true,
+	},
 }));
