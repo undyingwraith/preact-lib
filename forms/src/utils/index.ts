@@ -1,1 +1,0 @@
-export { createLabeled } from './createLabeled'

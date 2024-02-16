@@ -27,14 +27,14 @@ export default defineConfig(({ mode }) => ({
 		},
 		rollupOptions: {
 			preserveSymlinks: true,
-			external: ['preact', '@preact/signals', '@preact-lib/services'],
+			external: ['preact', '@preact/signals', '@preact-lib/interfaces', 'react-hook-form'],
 			output: {
 				// Provide global variables to use in the UMD build
 				// for externalized deps
 				globals: {
 					preact: 'preact',
 					'@preact/signals': '@preact/signals',
-					'@preact-lib/services': '@preact-lib/services',
+					'@preact-lib/interfaces': '@preact-lib/interfaces',
 				},
 			},
 		},

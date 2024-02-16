@@ -1,0 +1,23 @@
+.errorMessage {
+	color: red;
+}
+
+.input {
+	border-radius: 5px;
+	padding: 5px;
+	width: calc(100% - 12px);
+	border: 1px solid white;
+}
+
+.inputLabeled {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.inputLabeled label {
+	width: 25%;
+}
+
+.inputLabeled div {
+	width: 75%;
+}

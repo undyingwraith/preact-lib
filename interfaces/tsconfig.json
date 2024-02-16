@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "ES2020",
+		"useDefineForClassFields": true,
+		"module": "ESNext",
+		"lib": [
+			"ES2020",
+		],
+		"rootDir": "./src",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"moduleResolution": "bundler",
+		"declaration": true,
+		"outDir": "./dist",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitAny": true,
+		"skipLibCheck": true
+	}
+}

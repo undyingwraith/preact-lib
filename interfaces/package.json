@@ -1,0 +1,13 @@
+{
+  "name": "@preact-lib/interfaces",
+  "type": "module",
+  "main": "./dist",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "packageManager": "yarn@4.1.0",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
