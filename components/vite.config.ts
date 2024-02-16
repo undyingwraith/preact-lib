@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
 		libInjectCss(),
 		dts({
 			entryRoot: './src',
-			rollupTypes: true,
+			rollupTypes: false,
 		}),
 	],
 	build: {
